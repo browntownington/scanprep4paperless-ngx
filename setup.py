@@ -1,3 +1,5 @@
+# ocrmypdf comes will pillow version 9.1.1 therefore pillow requirement below has been changed from 8.1.0. this doesnt appear to cause any issues.
+
 import setuptools
 
 with open("README.md", "r", encoding="utf-8") as fh:
@@ -24,7 +26,7 @@ setuptools.setup(
     python_requires='>=3.6',
     install_requires=[
         'numpy==1.19.5',
-        'pillow==8.1.0',
+        'pillow==9.1.1',
         'pymupdf==1.18.6',
         'pyzbar==0.1.8'
     ]
