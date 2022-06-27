@@ -1,3 +1,9 @@
+# scanprep for paperless-ngx
+
+This is a modified version of scanprep to run on paperless-ngx systems to separate documents in the papaerless-ngx consume directory before they are processed by paperless-ngx.
+
+MORE DETAILS TO COME..  
+
 # scanprep – Prepare scanned PDF documents
 
 > Small utility to prepare scanned documents. Supports separating PDF files by separator pages and removing blank pages.
