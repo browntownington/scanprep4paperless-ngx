@@ -16,33 +16,12 @@ For document separation, separator pages need to be inserted between the differe
 
 ## Installation
 
-### Via Snap
-
-You can install scanprep from the [Snap Store](https://snapcraft.io/scanprep):
-
-```sh
-snap install scanprep
-
-scanprep -h
-```
-
-### Via PyPI
-
-You can install scanprep using `pip` (consider doing that in a venv):
-
-```sh
-pip3 install scanprep
-
-# If you see an error like "ImportError: Unable to find zbar shared library", you need to install zbar yourself. See: https://pypi.org/project/pyzbar/
-scanprep -h
-```
-
 ### From source
 
 To install scanprep from source, clone this repository and install the dependencies:
 
 ```sh
-git clone https://github.com/baltpeter/scanprep.git
+git clone https://github.com/browntownington/scanprep_for_paperless-ngx.git
 cd scanprep
 pip3 install -r requirements.txt # You may want to do this in a venv.
 # You may also need to install the zbar shared library. See: https://pypi.org/project/pyzbar/
