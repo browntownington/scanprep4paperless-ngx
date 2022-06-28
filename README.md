@@ -26,7 +26,7 @@ cd scanprep
 pip3 install -r requirements.txt # You may want to do this in a venv.
 # You may also need to install the zbar shared library. See: https://pypi.org/project/pyzbar/
 
-python3 scanprep/scanprep.py -h
+python3 scanprep/scanprep-4-paperless.py -h
 ```
 
 ## Usage
