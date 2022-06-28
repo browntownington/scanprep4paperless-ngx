@@ -18,7 +18,7 @@ For document separation, separator pages need to be inserted between the differe
 
 ### From source
 
-To install scanprep from source, clone this repository and install the dependencies:
+To install scanprep4paperless-ngx from source, clone this repository and install the dependencies:
 
 ```sh
 git clone https://github.com/browntownington/scanprep4paperless-ngx.git
@@ -30,6 +30,9 @@ python3 scanprep/scanprep-4-paperless.py -h
 ```
 
 ## Usage
+
+We need to run this script as a pre-consumption script. More details here:
+https://paperless-ngx.readthedocs.io/en/latest/advanced_usage.html#pre-consumption-script
 
 Most simply, you can run scanprep via `scanprep <filename.pdf>`. This will process the input file and output the results into your current working directory. To specify a different output directory, use `scanprep <filename.pdf> <output_directory>`.  
 The output files will be called `0-<filename.pdf>`, `1-<filename.pdf>`, and so on.
