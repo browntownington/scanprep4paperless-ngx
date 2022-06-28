@@ -21,8 +21,8 @@ For document separation, separator pages need to be inserted between the differe
 To install scanprep from source, clone this repository and install the dependencies:
 
 ```sh
-git clone https://github.com/browntownington/scanprep_for_paperless-ngx.git
-cd scanprep
+git clone https://github.com/browntownington/scanprep4paperless-ngx.git
+cd scanprep4paperless-ngx
 pip3 install -r requirements.txt # You may want to do this in a venv.
 # You may also need to install the zbar shared library. See: https://pypi.org/project/pyzbar/
 
