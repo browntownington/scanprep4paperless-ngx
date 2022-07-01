@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-s4p.py -i ${1}
+python s4p.py -i ${1}
