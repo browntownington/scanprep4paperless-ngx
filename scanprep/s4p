@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-python s4p.py -i ${1} /usr/src/paperless/consume/
+python s4p.py ${1} /usr/src/paperless/consume/
