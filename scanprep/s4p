@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-scanprep-4-paperless.py -i ${1}
+s4p.py -i ${1}
