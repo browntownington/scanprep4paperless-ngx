@@ -108,7 +108,6 @@ def main():
     log.write("in def main")
     log.write(args.input_pdf)
     log.write(os.path.basename(args.input_pdf)
-    log.write(args.output_dir)
     log.close()
               
     if len(new_docs) > 1:
