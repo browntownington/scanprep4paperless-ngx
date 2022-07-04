@@ -59,12 +59,6 @@ def get_new_docs_pages(doc, separate=True, remove_blank=True):
 
 def emit_new_documents(doc, filename, out_dir, separate=True, remove_blank=True):
     pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
-    log = open('s4p-py.log', 'w')
-    log.write("in emit_new_documents")
-    log.write(doc)
-    log.write(filename)
-    log.write(out_dir)
-    log.close()
     new_docs = get_new_docs_pages(doc, separate, remove_blank)
     if len(new_docs) > 1:
         for i, pages in enumerate(new_docs):
@@ -120,12 +114,6 @@ def main():
     file1.writelines(L)
 
     # Closing file
-    file1.close()
-
-    # Checking if the data is
-    # written to file or not
-    file1 = open('myfile.txt', 'r')
-    print(file1.read())
     file1.close()
               
     if len(new_docs) > 1:
