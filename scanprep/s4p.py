@@ -105,28 +105,28 @@ def main():
         args.input_pdf), os.path.abspath(args.output_dir), args.separate, args.remove_blank)
     
     # Python program to demonstrate
-# writing to file
-  
-# Opening a file
-file1 = open('myfile.txt', 'w')
-L = ["This is Delhi \n", "This is Paris \n", "This is London \n"]
-s = "Hello\n"
-  
-# Writing a string to file
-file1.write(s)
-  
-# Writing multiple strings
-# at a time
-file1.writelines(L)
-  
-# Closing file
-file1.close()
-  
-# Checking if the data is
-# written to file or not
-file1 = open('myfile.txt', 'r')
-print(file1.read())
-file1.close()
+    # writing to file
+
+    # Opening a file
+    file1 = open('myfile.txt', 'w')
+    L = ["This is Delhi \n", "This is Paris \n", "This is London \n"]
+    s = "Hello\n"
+
+    # Writing a string to file
+    file1.write(s)
+
+    # Writing multiple strings
+    # at a time
+    file1.writelines(L)
+
+    # Closing file
+    file1.close()
+
+    # Checking if the data is
+    # written to file or not
+    file1 = open('myfile.txt', 'r')
+    print(file1.read())
+    file1.close()
               
     if len(new_docs) > 1:
         os.remove(os.path.abspath(args.input_pdf))
