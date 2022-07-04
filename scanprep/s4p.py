@@ -59,7 +59,12 @@ def get_new_docs_pages(doc, separate=True, remove_blank=True):
 
 def emit_new_documents(doc, filename, out_dir, separate=True, remove_blank=True):
     pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
-
+    log = open('s4p-py.log', 'w')
+    log.write("in emit_new_documents")
+    log.write(doc)
+    log.write(filename)
+    log.write(out_dir)
+    log.close()
     new_docs = get_new_docs_pages(doc, separate, remove_blank)
     if len(new_docs) > 1:
         for i, pages in enumerate(new_docs):
@@ -99,9 +104,19 @@ def main():
     new_docs = emit_new_documents(fitz.open(os.path.abspath(args.input_pdf)), os.path.basename(
         args.input_pdf), os.path.abspath(args.output_dir), args.separate, args.remove_blank)
     
+    log = open('s4p-py.log', 'w')
+    log.write("in def main")
+    log.write(args.input_pdf)
+    log.write(os.path.basename(args.input_pdf)
+    log.write(args.output_dir)
+    log.close()
+              
     if len(new_docs) > 1:
         os.remove(os.path.abspath(args.input_pdf))
 
 
 if __name__ == '__main__':
+    log = open('s4p-py.log', 'w')
+    log.write("in main")
+    log.close()
     main()
