@@ -59,6 +59,10 @@ def get_new_docs_pages(doc, separate=True, remove_blank=True):
 
 
 def emit_new_documents(doc, filename, out_dir, separate=True, remove_blank=True):
+        file1 = open("myfile.txt", "a")
+        file1.write(filename)
+        print(filename)
+        file1.close()
         pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
         new_docs = get_new_docs_pages(doc, separate, remove_blank)
         if len(new_docs) > 1:
