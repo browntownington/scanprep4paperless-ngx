@@ -5,9 +5,10 @@ import numpy as np
 import os
 import pathlib
 import logging
+import datetime
 from pyzbar.pyzbar import decode
 
-logging.basicConfig(filename="mylog.log")
+#logging.basicConfig(filename="mylog.log")
 # Algorithm inspired by: https://dsp.stackexchange.com/a/48837
 def page_is_empty(img):
     threshold = np.mean(ImageStat.Stat(img).mean) - 50
@@ -59,8 +60,9 @@ def get_new_docs_pages(doc, separate=True, remove_blank=True):
 
 
 def emit_new_documents(doc, filename, out_dir, separate=True, remove_blank=True):
-        file1 = open("emitdoc.txt", "a")
-        file1.write(filename + "\n")
+        now = datetime.datetime.now()
+        file1 = open("s4p.log", "a")
+        file1.write(str(now) + " || py new doc filename:" + filename + "\n")
         print(filename)
         file1.close()
         pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
@@ -99,8 +101,10 @@ def main():
                                    help='Do (or do not) remove empty pages from the output. (default yes)'))
     args = parser.parse_args()
     
-    file2 = open("args.txt", "a")
-    file2.write(os.path.abspath(args.input_pdf) + "\n")
+    now = datetime.datetime.now()
+    
+    file2 = open("s4p.log", "a")
+    file2.write(str(now) + " || py arg file path:" + os.path.abspath(args.input_pdf) + "\n")
     print(os.path.abspath(args.input_pdf))
     file2.close()
 #chris added new_doc =
