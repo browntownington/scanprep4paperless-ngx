@@ -99,10 +99,10 @@ def main():
                                    help='Do (or do not) remove empty pages from the output. (default yes)'))
     args = parser.parse_args()
     
-     file2 = open("args.txt", "a")
-     file2.write(os.path.abspath(args.input_pdf) + "\n")
-     print(os.path.abspath(args.input_pdf))
-     file2.close()
+    file2 = open("args.txt", "a")
+    file2.write(os.path.abspath(args.input_pdf) + "\n")
+    print(os.path.abspath(args.input_pdf))
+    file2.close()
 #chris added new_doc =
     new_docs = emit_new_documents(fitz.open(os.path.abspath(args.input_pdf)), os.path.basename(
         args.input_pdf), os.path.abspath(args.output_dir), args.separate, args.remove_blank)
