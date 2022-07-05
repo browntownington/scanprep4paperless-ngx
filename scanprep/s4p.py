@@ -59,7 +59,6 @@ def get_new_docs_pages(doc, separate=True, remove_blank=True):
 
 
 def emit_new_documents(doc, filename, out_dir, separate=True, remove_blank=True):
-    try:
         pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
         new_docs = get_new_docs_pages(doc, separate, remove_blank)
         if len(new_docs) > 1:
@@ -71,9 +70,6 @@ def emit_new_documents(doc, filename, out_dir, separate=True, remove_blank=True)
                 new_doc.save(os.path.join(out_dir, f"{i}-{filename}"))
 
         return new_docs
-    except Exception as e:
-        logging.warning("Couldn't emit new document")
-        logging.warning('Reason:', e)
 
 # Taken from: https://stackoverflow.com/a/9236426
 class ActionNoYes(argparse.Action):
@@ -98,10 +94,10 @@ def main():
     parser._add_action(ActionNoYes('blank-removal', 'remove_blank',
                                    help='Do (or do not) remove empty pages from the output. (default yes)'))
     args = parser.parse_args()
-
+#chris added new_doc =
     new_docs = emit_new_documents(fitz.open(os.path.abspath(args.input_pdf)), os.path.basename(
         args.input_pdf), os.path.abspath(args.output_dir), args.separate, args.remove_blank)
-              
+ #chris added if statement to delete source file if more docs than once exist e.g if docs were split.             
     if len(new_docs) > 1:
         os.remove(os.path.abspath(args.input_pdf))
 
