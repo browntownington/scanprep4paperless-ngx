@@ -4,9 +4,10 @@ from PIL import Image, ImageFilter, ImageStat
 import numpy as np
 import os
 import pathlib
+import logging
 from pyzbar.pyzbar import decode
 
-
+logging.basicConfig(filename="mylog.log")
 # Algorithm inspired by: https://dsp.stackexchange.com/a/48837
 def page_is_empty(img):
     threshold = np.mean(ImageStat.Stat(img).mean) - 50
@@ -58,18 +59,21 @@ def get_new_docs_pages(doc, separate=True, remove_blank=True):
 
 
 def emit_new_documents(doc, filename, out_dir, separate=True, remove_blank=True):
-    pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
-    new_docs = get_new_docs_pages(doc, separate, remove_blank)
-    if len(new_docs) > 1:
-        for i, pages in enumerate(new_docs):
-            new_doc = fitz.open()  # Will create a new, blank document.
-            for j, page_no in enumerate(pages):
-                new_doc.insertPDF(doc, from_page=page_no,
-                                to_page=page_no, final=(j == len(pages) - 1))
-            new_doc.save(os.path.join(out_dir, f"{i}-{filename}"))
-        
-    return new_docs
+    try:
+        pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
+        new_docs = get_new_docs_pages(doc, separate, remove_blank)
+        if len(new_docs) > 1:
+            for i, pages in enumerate(new_docs):
+                new_doc = fitz.open()  # Will create a new, blank document.
+                for j, page_no in enumerate(pages):
+                    new_doc.insertPDF(doc, from_page=page_no,
+                                    to_page=page_no, final=(j == len(pages) - 1))
+                new_doc.save(os.path.join(out_dir, f"{i}-{filename}"))
 
+        return new_docs
+    except Exception as e:
+        logging.warning("Couldn't emit new document")
+        logging.warning('Reason:', e)
 
 # Taken from: https://stackoverflow.com/a/9236426
 class ActionNoYes(argparse.Action):
@@ -97,28 +101,9 @@ def main():
 
     new_docs = emit_new_documents(fitz.open(os.path.abspath(args.input_pdf)), os.path.basename(
         args.input_pdf), os.path.abspath(args.output_dir), args.separate, args.remove_blank)
-    
-    # Python program to demonstrate
-    # writing to file
-
-    # Opening a file
-    file1 = open('myfile.txt', 'w')
-    L = ["This is Delhi \n", "This is Paris \n", "This is London \n"]
-    s = "Hello\n"
-
-    # Writing a string to file
-    file1.write(s)
-
-    # Writing multiple strings
-    # at a time
-    file1.writelines(L)
-
-    # Closing file
-    file1.close()
               
     if len(new_docs) > 1:
         os.remove(os.path.abspath(args.input_pdf))
-
 
 if __name__ == '__main__':
     main()
