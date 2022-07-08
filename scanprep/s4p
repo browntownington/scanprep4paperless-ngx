@@ -2,4 +2,4 @@
 logpath="/usr/src/paperless/src/scanprep4paperless-ngx/scanprep/s4p.log"
 logmsg=$(date +"%D %T")" || scanprep4paperless-ngx (s4p) bash called with file path: '"$1"'"
 echo $logmsg>> $logpath
-python s4p.py ${1} /usr/src/paperless/consume/
+python /usr/src/paperless/src/scanprep4paperless-ngx/scanprep/s4p.py ${1} /usr/src/paperless/consume/
