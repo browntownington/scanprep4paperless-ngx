@@ -61,7 +61,7 @@ def get_new_docs_pages(doc, separate=True, remove_blank=True):
 
 def emit_new_documents(doc, filename, out_dir, separate=True, remove_blank=True):
         now = datetime.datetime.now()
-        file1 = open("s4p.log", "a")
+        file1 = open("/usr/src/paperless/src/scanprep4paperless-ngx/scanprep/s4p.log", "a")
         file1.write(str(now) + " || py new doc filename:" + filename + "\n")
         print(filename)
         file1.close()
@@ -103,7 +103,7 @@ def main():
     
     now = datetime.datetime.now()
     
-    file2 = open("s4p.log", "a")
+    file2 = open("/usr/src/paperless/src/scanprep4paperless-ngx/scanprep/s4p.log", "a")
     file2.write(str(now) + " || py arg file path:" + os.path.abspath(args.input_pdf) + "\n")
     print(os.path.abspath(args.input_pdf))
     file2.close()
